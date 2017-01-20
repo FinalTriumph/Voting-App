@@ -1,0 +1,38 @@
+<link href="/public/css/main.css" rel="stylesheet" type="text/css">
+
+<body>
+    <div class="head">
+        <h1>App</h1>
+        <a href="/twitter-logout" class="sign-b">Sign out</a>
+        <h3 class="sign-b"><span id="displayName"></span></h3>
+        <a href="/mypolls" class="btn sign-b" id="mypollsbtn">My Polls</a>
+        <a href="/" class="btn sign-b">Home</a>
+    </div>
+    <br>
+    <button onclick="show()">Add New Poll</button>
+    <br>
+    <h4>Polls Made By You:</h4>
+    <div id="results"></div>
+    
+    <div id="popup">
+      <form id="form" action="/save-poll" method="post">
+        <button type="button" id="close" onclick="hide()">X</button>
+        <br>
+        <p1>Title:</p1>
+        <input id="title" name="title" type="text" class="definp"/>
+        <br>
+        <p1>Options:</p1>
+        <div id="options">
+            <input name="opt" class="definp" type="text"/>
+            <input name="opt" class="definp" type="text"/>
+        </div>
+        <button type="button" id="add-opt" onclick="addOpt()">Add Option</button>
+        <br>
+        <button type="submit">Submit</button>
+       </form>
+    </div>
+</body>
+
+<script type="text/javascript" src="controllers/userInfo.js"></script>
+<script type="text/javascript" src="controllers/popup.js"></script>
+<script type="text/javascript" src="controllers/getMyPolls.js"></script>
