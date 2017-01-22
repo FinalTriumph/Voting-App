@@ -24,20 +24,84 @@ function ajaxRequest (method, url, callback) {
     
 ready(ajaxRequest("GET", apiUrl, function(data){
     var pollObject = JSON.parse(data);
-    console.log(pollObject.options);
+    var myOpt = pollObject.options;
+    var forChart = [];
+    var forOffset = {};
+    var count = 0;
     
-    var newdiv = document.createElement("div");
-    newdiv.classname += "fullpoll";
-    newdiv.innerHTML = pollObject.id + "<br>" 
-        + pollObject.title + "<br>" 
-        + pollObject.options + "<br>" 
-        + pollObject.author;
-    document.getElementById("poll").appendChild(newdiv);
+    document.title = pollObject.title;
     
-    var newanc = document.createElement("a");
+    var newtitle = document.createElement("h1");
+        newtitle.innerHTML = pollObject.title;
+        newtitle.setAttribute("id", "titleft");
+        document.getElementById("poll-title").appendChild(newtitle);
     
-    newanc.innerHTML = "Delete";
-    newanc.setAttribute("href", "/delete/poll=" + pollObject.id);
-    document.getElementById("poll").appendChild(newanc);
+    for (var name in myOpt) {
+        var value = myOpt[name];
+        forChart.push([name, value]);
+        
+        forOffset[count] = {offset: 0.05};
+        count += 1;
+        
+        var newanc = document.createElement("a");
+        newanc.setAttribute("id", name);
+        newanc.setAttribute("href", "/addvote/poll=" + pollObject.id + "/option=" + name);
+        document.getElementById("votefor").appendChild(newanc);
+        
+        var newdiv = document.createElement("div");
+        newdiv.className += "oppt";
+        newdiv.innerHTML = name;
+        document.getElementById(name).appendChild(newdiv);
+        
+    }
+    
+    google.charts.load('current', {'packages':['corechart']});
+
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Option');
+        data.addColumn('number', 'Count');
+        data.addRows(forChart);
+        
+        var options = {'width': 700,
+                       'height': 500,
+                        "sliceVisibilityThreshold": 0,
+                        "slices": forOffset
+                        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    }
+    
+    var newancd = document.createElement("a");
+    newancd.setAttribute("id", "deletebtn");
+    newancd.setAttribute("href", "#");
+    document.getElementById("delete").appendChild(newancd);
+    
+    document.getElementById("deletebtn").addEventListener("click", function(){
+        if (window.confirm('Delete poll "' + pollObject.title + '"?')) {
+            window.location.href = window.location.origin + "/delete/poll=" + pollObject.id;
+        } else {
+            return false;
+        }
+    });
+    
+    var newdivd = document.createElement("div");
+    newdivd.className += "cont";
+    newdivd.innerHTML = "Delete this poll";
+    document.getElementById("deletebtn").appendChild(newdivd);
+    
+    var newancsh = document.createElement("a");
+    newancsh.setAttribute("id", "sharebtn");
+    newancsh.setAttribute("href", "https://twitter.com/intent/tweet?text=" + pollObject.title + " " + window.location);
+    newancsh.setAttribute("target", "_blank");
+    document.getElementById("share").appendChild(newancsh);
+    
+    var newdivsh = document.createElement("div");
+    newdivsh.className += "cont";
+    newdivsh.innerHTML = "Share this poll";
+    document.getElementById("sharebtn").appendChild(newdivsh);
     
 }));

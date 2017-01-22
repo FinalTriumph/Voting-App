@@ -1,4 +1,7 @@
-<link href="/public/css/main.css" rel="stylesheet" type="text/css">
+<head>
+    <link href="/public/css/main.css" rel="stylesheet" type="text/css">
+    <title>Voting App - My Polls</title>
+</head>
 
 <body>
     <div class="head">
@@ -6,12 +9,12 @@
         <a href="/twitter-logout" class="sign-b">Sign out</a>
         <h3 class="sign-b"><span id="displayName"></span></h3>
         <a href="/mypolls" class="btn sign-b" id="mypollsbtn">My Polls</a>
-        <a href="/" class="btn sign-b">Home</a>
+        <a href="/" class="btn sign-b">All Polls</a>
     </div>
     <br>
     <button onclick="show()">Add New Poll</button>
     <br>
-    <h4>Polls Made By You:</h4>
+    <h3>Polls Made By You:</h3>
     <div id="results"></div>
     
     <div id="popup">
@@ -19,12 +22,12 @@
         <button type="button" id="close" onclick="hide()">X</button>
         <br>
         <p1>Title:</p1>
-        <input id="title" name="title" type="text" class="definp"/>
+        <input id="title" name="title" type="text" class="definp" required="required" pattern=".*\S+.*"/>
         <br>
         <p1>Options:</p1>
         <div id="options">
-            <input name="opt" class="definp" type="text"/>
-            <input name="opt" class="definp" type="text"/>
+            <input name="opt" class="definp" type="text" required="required" pattern=".*\S+.*"/>
+            <input name="opt" class="definp" type="text" required="required" pattern=".*\S+.*"/>
         </div>
         <button type="button" id="add-opt" onclick="addOpt()">Add Option</button>
         <br>

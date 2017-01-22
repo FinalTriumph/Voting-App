@@ -170,4 +170,18 @@ module.exports = function(app, passport) {
             });
             
         });
+        app.route("/addvote/poll=:pollID/option=:chopt")
+        .get(function(req, res) {
+            var upopt = req.params.chopt;
+            var inc = { $inc: {} };
+            inc.$inc["poll.options." + upopt] = 1;
+            Poll.findOneAndUpdate({ "_id": req.params.pollID }, inc )
+                .exec(function(err, result) {
+                    if(err) throw err;
+            });
+            res.redirect("/poll=" + req.params.pollID);
+        });
+        
+        
+        
 };

@@ -27,6 +27,7 @@ function hide() {
     
 function addOpt() {
     InputN += 1;
+    var regex = /.*\S+.*/;
     
     var newInput = document.createElement("input");
     var newBtnX = document.createElement("button");
@@ -34,6 +35,8 @@ function addOpt() {
     newInput.type = "text";
     newInput.setAttribute("name", "opt");
     newInput.setAttribute("id", "input"+InputN);
+    newInput.setAttribute("required", "required");
+    newInput.setAttribute("pattern", regex.source);
     newInput.className = "extra-input";
     document.getElementById("options").appendChild(newInput);
         

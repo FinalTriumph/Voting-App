@@ -10,12 +10,15 @@ h1 {
 .sign-b {
     float: right;
     margin-top: 20px;
-    margin-right: 7%;
+    width: 100px;
 }
 .head {
     width: 100%;
     height: 70px;
     background-color: silver;
+}
+.head * {
+  padding: 0px 10px;
 }
 #popup {
   display: none;
@@ -60,7 +63,7 @@ p1 {
   background-color: #e0e0e0;
   height: 30px;
   width: 100px;
-  padding: 20px;
+  padding: 20px 10px;
   margin-top: 0px;
 }
 .cont {
@@ -79,4 +82,37 @@ a {
   padding: 20px;
   margin: 10px auto 10px auto;
   overflow: auto;
+}
+.oppt {
+  background-color: #e3f2fd;
+  width: 200px;
+  padding: 20px;
+  margin: 10px auto 10px auto;
+  overflow: auto;
+}
+#chart_div, #vot-opt {
+  display: inline-block;
+  margin-top: 10px;
+  vertical-align: top;
+}
+#addoption {
+  width: 200px;
+}
+#delete, #share {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+input:required {
+    box-shadow:none;
+}
+input:invalid {
+    box-shadow:none;
+}
+#poll-title {
+  display: inline-block;
+}
+#results {
+  width: 70%;
+  margin: 20px auto 50px auto;
 }
