@@ -1,37 +1,38 @@
 <head>
     <link href="/public/css/main.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
     <title>Voting App - My Polls</title>
 </head>
 
 <body>
     <div class="head">
-        <h1>App</h1>
-        <a href="/twitter-logout" class="sign-b">Sign out</a>
+        <h1>Voting App</h1>
+        <a href="/twitter-logout" class="btn sign-b">Sign out</a>
         <h3 class="sign-b"><span id="displayName"></span></h3>
         <a href="/mypolls" class="btn sign-b" id="mypollsbtn">My Polls</a>
         <a href="/" class="btn sign-b">All Polls</a>
     </div>
-    <br>
-    <button onclick="show()">Add New Poll</button>
-    <br>
-    <h3>Polls Made By You:</h3>
-    <div id="results"></div>
+    <div id="results">
+        <button onclick="show()" class="bwb">Add New Poll</button>
+    </div>
     
     <div id="popup">
       <form id="form" action="/save-poll" method="post">
         <button type="button" id="close" onclick="hide()">X</button>
         <br>
         <p1>Title:</p1>
+        <br>
         <input id="title" name="title" type="text" class="definp" required="required" pattern=".*\S+.*"/>
         <br>
         <p1>Options:</p1>
+        <br>
         <div id="options">
             <input name="opt" class="definp" type="text" required="required" pattern=".*\S+.*"/>
             <input name="opt" class="definp" type="text" required="required" pattern=".*\S+.*"/>
         </div>
-        <button type="button" id="add-opt" onclick="addOpt()">Add Option</button>
+        <button type="button" id="add-opt" onclick="addOpt()" class="aosvbtn">Add Option</button>
         <br>
-        <button type="submit">Submit</button>
+        <button type="submit" class="aosvbtn">Submit</button>
        </form>
     </div>
 </body>
@@ -39,3 +40,4 @@
 <script type="text/javascript" src="controllers/userInfo.js"></script>
 <script type="text/javascript" src="controllers/popup.js"></script>
 <script type="text/javascript" src="controllers/getMyPolls.js"></script>
+<script type="text/javascript" src="controllers/trans.js"></script>

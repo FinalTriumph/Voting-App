@@ -1,25 +1,28 @@
 <link href="/public/css/main.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 
 <body>
     <div class="head">
-        <h1>App</h1>
-        <a href="/twitter-logout" class="sign-b">Sign out</a>
+        <h1>Voting App</h1>
+        <a href="/twitter-logout" class="btn sign-b">Sign out</a>
         <h3 class="sign-b"><span id="displayName"></span></h3>
         <a href="/mypolls" class="btn sign-b">My Polls</a>
         <a href="/" class="btn sign-b">All Polls</a>
     </div>
-    <div id="poll-title"></div>
-    <br>
-    <div id="chart_div"></div>
-    <div id="vot-opt">
-        <div id="votefor"></div>
-        <div id="add-new"></div>
+    <div id="results2">
+        <div id="poll-title"></div>
+        <div id="chart_div"></div>
+        <div id="vot-opt">
+            <div id="votefor"></div>
+            <div id="add-new"></div>
+        </div>
+        <div id="share"></div>
+        <div id="delete"></div>
     </div>
-    <div id="share"></div>
-    <div id="delete"></div>
 </body>
 
 <script type="text/javascript" src="controllers/userInfo.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript" src="controllers/getMySinglePoll.js"></script>
 <script type="text/javascript" src="controllers/newoption.js"></script>
+<script type="text/javascript" src="controllers/trans.js"></script>

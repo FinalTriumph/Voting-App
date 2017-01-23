@@ -25,13 +25,6 @@ function ajaxRequest (method, url, callback) {
 ready(ajaxRequest("GET", apiUrl, function(data){
     var pollsObject = JSON.parse(data);
     
-    if (pollsObject.length === 0) {
-        var newdiv = document.createElement("div");
-        newdiv.className += "cont";
-        newdiv.innerHTML = "No polls to display";
-        document.getElementById("results").appendChild(newdiv);
-    }
-    
     pollsObject.forEach(function(poll){
         var newanc = document.createElement("a");
         newanc.setAttribute("id", poll.id);
@@ -40,7 +33,7 @@ ready(ajaxRequest("GET", apiUrl, function(data){
         
         var newdiv = document.createElement("div");
         newdiv.className += "cont";
-        newdiv.innerHTML = poll.title + "<br>" + poll.author;
+        newdiv.innerHTML = poll.title;
         document.getElementById(poll.id).appendChild(newdiv);
     });
 }));

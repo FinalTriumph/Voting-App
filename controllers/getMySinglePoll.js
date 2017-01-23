@@ -31,7 +31,7 @@ ready(ajaxRequest("GET", apiUrl, function(data){
     
     document.title = pollObject.title;
     
-    var newtitle = document.createElement("h1");
+    var newtitle = document.createElement("h2");
         newtitle.innerHTML = pollObject.title;
         newtitle.setAttribute("id", "titleft");
         document.getElementById("poll-title").appendChild(newtitle);
@@ -65,8 +65,21 @@ ready(ajaxRequest("GET", apiUrl, function(data){
         data.addColumn('number', 'Count');
         data.addRows(forChart);
         
-        var options = {'width': 700,
-                       'height': 500,
+        var options = { "width": 600,
+                        "height": 450,
+                        "backgroundColor": "#ecf0f1",
+                        "chartArea": {
+                            "left": 10,
+                            "top": 80,
+                            "width": 500,
+                            "height": 300
+                        },
+                        "legend": {
+                            "position": "left"
+                        },
+                        "tooltip": {
+                            "text": "value"
+                        },
                         "sliceVisibilityThreshold": 0,
                         "slices": forOffset
                         };

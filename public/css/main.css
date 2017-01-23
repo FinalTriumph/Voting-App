@@ -1,24 +1,54 @@
 body {
-    background-color: #fafafa;
+    background-color: #fff;//#ecf0f1;
     text-align: center;
+    opacity: 0;
+    font-family: Montserrat;
+}
+button {
+  font-family: Montserrat;
+}
+button:hover {
+  cursor: pointer;
+  cursor: hand;
 }
 h1 {
     float: left;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-left: 7%;
-}
-.sign-b {
-    float: right;
-    margin-top: 20px;
-    width: 100px;
+    font-size: 26px;
 }
 .head {
     width: 100%;
-    height: 70px;
-    background-color: silver;
+    height: 65px;
+    background-color: #2E5147;
+    color: white;
+    border-radius: 2px;
 }
 .head * {
-  padding: 0px 10px;
+  padding: 0px 0px;
+}
+.sign-b {
+    float: right;
+}
+.btn {
+  color: white;
+  height: 25px;
+  padding: 20px;
+  padding-top: 22px;
+  padding-bottom: 18px;
+  transition: 0.2s;
+}
+#homebtn, #mypollsbtn {
+  background-color: rgba(69, 115, 104, 0.6);
+}
+.btn:hover, #homebtn:hover, #mypollsbtn:hover {
+  background-color: #457368;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  transition: 0.2s;
+}
+#displayName {
+  padding: 20px;
 }
 #popup {
   display: none;
@@ -27,50 +57,68 @@ h1 {
   top: 0;
   left: 0;
   position: fixed;
-  background-color: rgba(50, 50, 50, 0.9);
+  background-color: rgba(50, 50, 50, 0.5);
 }
 #form {
   position: absolute;
-  background-color: #f5f5f5;
-  border: 1px solid #212121;
-  border-radius: 2px;
-  padding: 20px;
-  width: 300px;
+  background-color: #ecf0f1;
+  border: 1px solid #2E5147;
+  border-radius: 3px;
+  padding: 0px;
+  padding-bottom: 30px;
+  width: 400px;
   left: 50%;
   top: 10%;
-  margin-left: -150px;
+  margin-left: -200px;
 }
 input {
-  width: 250px;
+  padding: 5px;
+  width: 330px;
   margin-bottom: 10px;
+  font-size: 16px;
+  font-family: Montserrat;
 }
-.definp {
-  width: 280px;
+input:required {
+    box-shadow:none;
+}
+input:invalid {
+    box-shadow:none;
 }
 #close {
   position: absolute;
+  font-size: 16px;
   font-weight: bold;
-  margin-left: 139px;
-  margin-top: -19px;
-  width: 30px;
+  margin-left: 163px;
+  margin-top: -2px;
+  width: 38px;
   height: 27px;
+  background-color: #2E5147;
+  color: #fff;
+  border: 1px solid #616161;
+  border-radius: 3px;
+}
+#close:hover {
+  border: 1px solid #eee;
 }
 p1 {
   float: left;
-  margin-left: 30px;
-}
-#homebtn, #mypollsbtn {
-  background-color: #e0e0e0;
-  height: 30px;
-  width: 100px;
-  padding: 20px 10px;
-  margin-top: 0px;
+  margin: 5px auto 5px 50px;
+  font-size: 17px;
 }
 .cont {
-  background-color: #e3f2fd;
-  padding: 20px;
+  background-color: #fcfdfd;
+  height: 40px;
   margin: 10px auto 10px auto;
+  padding-top: 15px;
   overflow: auto;
+  border: 1px solid #2E5147;
+  border-radius: 3px;
+  font-size: 17px;
+}
+.cont:hover {
+  background-color: #fff;
+  border-bottom: 2px solid #2E5147;
+  height: 39px;
 }
 a {
   text-decoration: none;
@@ -83,36 +131,91 @@ a {
   margin: 10px auto 10px auto;
   overflow: auto;
 }
-.oppt {
-  background-color: #e3f2fd;
-  width: 200px;
-  padding: 20px;
-  margin: 10px auto 10px auto;
-  overflow: auto;
-}
 #chart_div, #vot-opt {
   display: inline-block;
-  margin-top: 10px;
   vertical-align: top;
 }
 #addoption {
-  width: 200px;
+  width: 230px;
 }
 #delete, #share {
   width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
-input:required {
-    box-shadow:none;
-}
-input:invalid {
-    box-shadow:none;
-}
-#poll-title {
-  display: inline-block;
+  margin: 0px auto 0px auto;
 }
 #results {
+  background-color: #ecf0f1;;
   width: 70%;
-  margin: 20px auto 50px auto;
+  padding: 5px 5%;
+  padding-bottom: 3%;
+  margin: -2px auto 50px auto;
+  border: 2px solid #2E5147;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+#results2 {
+  background-color: #ecf0f1;
+  width: 80%;
+  padding-bottom: 3%;
+  margin: -2px auto 50px auto;
+  border: 2px solid #2E5147;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.bwb {
+  background-color: #fff;
+  border: 1px solid #2E5147;
+  border-radius: 3px;
+  width: 200px;
+  height: 40px;
+  font-size: 16px;
+  margin: 20px auto 15px auto;
+}
+.bwb:hover {
+  border-bottom: 2px solid #2E5147;
+}
+.xbtn {
+  font-weight: bold;
+  width: 30px;
+  margin-right: -30px;
+  background-color: #ecf0f1;
+  color: #bdbdbd;
+  border: none;
+  font-size: 16px;
+}
+.xbtn:hover {
+  color: #424242;
+}
+.aosvbtn, .oppt {
+  background-color: #fff;
+  border: 1px solid #2E5147;
+  border-radius: 3px;
+  width: 230px;
+  height: 40px;
+  font-size: 14px;
+  margin: 10px auto 0px auto;
+}
+.aosvbtn:hover, .oppt:hover {
+  border-bottom: 2px solid #2E5147;
+}
+.oppt {
+  padding-top: 10px;
+  height: 30px;
+  margin: 10px auto 10px auto;
+  vertical-align: baseline;
+  overflow: auto;
+}
+.oppt:hover {
+  padding-top: 9px;
+}
+#titleft {
+  margin-bottom: 0px;
+}
+.head {
+  min-width: 704px;
+}
+#results{
+  min-width: 625px;
+} 
+#results2 {
+  min-width: 700px;
 }

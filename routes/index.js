@@ -15,6 +15,8 @@ module.exports = function(app, passport) {
     
     app.route("/")
         .get(isLoggedIn, function(req, res) {
+            //var ip = req.headers["x-forwarded-for"];
+            //console.log(ip);
             res.sendFile(path + "/public/homeLI.html");
         });
         
@@ -181,7 +183,5 @@ module.exports = function(app, passport) {
             });
             res.redirect("/poll=" + req.params.pollID);
         });
-        
-        
         
 };

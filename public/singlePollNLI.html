@@ -1,19 +1,22 @@
 <link href="/public/css/main.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 
 <body>
     <div class="head">
-        <h1>App</h1>
-        <a href="/auth/twitter" class="sign-b">Sign in with Twitter</a>
+        <h1>Voting App</h1>
+        <a href="/auth/twitter" class="btn sign-b">Sign in with Twitter</a>
         <a href="/" class="btn sign-b">All Polls</a>
     </div>
+    <div id="results2">
     <div id="poll-title"></div>
-    <br>
-    <div id="chart_div"></div>
-    <div id="vot-opt">
-        <div id="votefor"></div>
+        <div id="chart_div"></div>
+        <div id="vot-opt">
+            <div id="votefor"></div>
+        </div>
+        <div id="share"></div>
     </div>
-    <div id="share"></div>
 </body>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript" src="controllers/getSinglePoll.js"></script>
+<script type="text/javascript" src="controllers/trans.js"></script>

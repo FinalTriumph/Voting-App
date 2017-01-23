@@ -33,7 +33,7 @@ ready(ajaxRequest("GET", apiUrl, function(data){
         
         var newdiv = document.createElement("div");
         newdiv.className += "cont";
-        newdiv.innerHTML = poll.title + "<br>" + poll.author;
+        newdiv.innerHTML = poll.title;
         document.getElementById(poll.id).appendChild(newdiv);
     });
 }));
