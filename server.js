@@ -3,10 +3,10 @@
 var express = require("express");
 var app = express();
 var session = require('express-session');
-//var mongo = require("mongodb").MongoClient;
+var mongo = require("mongodb").MongoClient;
 var mongourl = process.env.MONGOLAB_URI || "mongodb://localhost:27017/data";
 var passport = require("passport");
-//var TwitterStrategy = require("passport-twitter").Strategy;
+var TwitterStrategy = require("passport-twitter").Strategy;
 var mongoose = require("mongoose");
 var routes = require("./routes/index.js");
 var bodyParser = require("body-parser");
