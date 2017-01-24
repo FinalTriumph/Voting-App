@@ -87,6 +87,8 @@ ready(ajaxRequest("GET", apiUrl, function(data){
                             "width": 500,
                             "height": 350
                         },
+                        "fontSize": 14,
+                        "fontName": "Montserrat",
                         "legend": {
                             "position": "left"
                         },
@@ -129,5 +131,4 @@ ready(ajaxRequest("GET", apiUrl, function(data){
     newdivsh.className += "cont";
     newdivsh.innerHTML = "Share this poll";
     document.getElementById("sharebtn").appendChild(newdivsh);
-    
 }));

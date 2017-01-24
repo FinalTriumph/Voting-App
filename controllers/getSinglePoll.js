@@ -87,6 +87,8 @@ ready(ajaxRequest("GET", apiUrl, function(data){
                             "width": 500,
                             "height": 350
                         },
+                        "fontSize": 14,
+                        "fontName": "Montserrat",
                         "legend": {
                             "position": "left"
                         },

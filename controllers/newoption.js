@@ -59,6 +59,11 @@ function addnewvote(){
         } else {
             return false;
         }
-        //window.location.href = window.location.origin + "/addvote" + window.location.pathname + "/option=" + newValue;
     }
 }
+
+document.getElementById("addoption").addEventListener("keypress", function(e){
+    if (e.which == 13) {
+        addnewvote();
+    }
+})

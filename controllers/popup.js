@@ -16,7 +16,7 @@ function hide() {
         
     var addedInputs = document.getElementsByClassName("extra-input");
     while(addedInputs[0]) {
-        addedInputs[0].parentNode.removeChild(addedInputs[0])
+        addedInputs[0].parentNode.removeChild(addedInputs[0]);
     }
         
     var allXBtns = document.getElementsByClassName("xbtn");
