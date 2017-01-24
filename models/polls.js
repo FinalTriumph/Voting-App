@@ -10,7 +10,7 @@ var Poll = new Schema({
         author: String,
         title: String,
         options: Object,
-        voted: Object
+        voted: Array
     }
 });
 

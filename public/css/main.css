@@ -1,5 +1,5 @@
 body {
-    background-color: #fff;//#ecf0f1;
+    background-color: #ecf0f1;
     text-align: center;
     opacity: 0;
     font-family: Montserrat;
@@ -20,7 +20,7 @@ h1 {
 .head {
     width: 100%;
     height: 65px;
-    background-color: #2E5147;
+    background-color: #006633;
     color: white;
     border-radius: 2px;
 }
@@ -39,10 +39,10 @@ h1 {
   transition: 0.2s;
 }
 #homebtn, #mypollsbtn {
-  background-color: rgba(69, 115, 104, 0.6);
+  background-color: rgba(105, 255, 117, 0.1);
 }
 .btn:hover, #homebtn:hover, #mypollsbtn:hover {
-  background-color: #457368;
+  background-color: rgba(105, 255, 117, 0.15);
   padding-top: 20px;
   padding-bottom: 20px;
   transition: 0.2s;
@@ -57,12 +57,12 @@ h1 {
   top: 0;
   left: 0;
   position: fixed;
-  background-color: rgba(50, 50, 50, 0.5);
+  background-color: rgba(50, 50, 50, 0.9);
 }
 #form {
   position: absolute;
   background-color: #ecf0f1;
-  border: 1px solid #2E5147;
+  border: 1px solid #006633;
   border-radius: 3px;
   padding: 0px;
   padding-bottom: 30px;
@@ -88,13 +88,13 @@ input:invalid {
   position: absolute;
   font-size: 16px;
   font-weight: bold;
-  margin-left: 163px;
-  margin-top: -2px;
-  width: 38px;
-  height: 27px;
-  background-color: #2E5147;
+  margin-left: 166px;
+  margin-top: -1px;
+  width: 35px;
+  height: 25px;
+  background-color: #006633;
   color: #fff;
-  border: 1px solid #616161;
+  border: 1px solid #006633;
   border-radius: 3px;
 }
 #close:hover {
@@ -106,18 +106,20 @@ p1 {
   font-size: 17px;
 }
 .cont {
-  background-color: #fcfdfd;
   height: 40px;
   margin: 10px auto 10px auto;
   padding-top: 15px;
   overflow: auto;
-  border: 1px solid #2E5147;
-  border-radius: 3px;
+  border-bottom: 1px solid #006633;
+  border-radius: 1px;
   font-size: 17px;
 }
 .cont:hover {
-  background-color: #fff;
-  border-bottom: 2px solid #2E5147;
+  background-color: #fafdfa;
+  border: 1px solid #006633;
+  border-bottom: 2px solid #006633;
+  border-radius: 3px;
+  padding-top: 14px;
   height: 39px;
 }
 a {
@@ -135,29 +137,32 @@ a {
   display: inline-block;
   vertical-align: top;
 }
+#vot-opt {
+  margin-top: 30px;
+}
 #addoption {
-  width: 230px;
+  width: 210px;
 }
 #delete, #share {
   width: 500px;
   margin: 0px auto 0px auto;
 }
 #results {
-  background-color: #ecf0f1;;
+  background-color: #fff;
   width: 70%;
   padding: 5px 5%;
   padding-bottom: 3%;
   margin: -2px auto 50px auto;
-  border: 2px solid #2E5147;
+  border: 2px solid #006633;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
 #results2 {
-  background-color: #ecf0f1;
+  background-color: #fff;
   width: 80%;
   padding-bottom: 3%;
   margin: -2px auto 50px auto;
-  border: 2px solid #2E5147;
+  border: 2px solid #006633;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
@@ -171,7 +176,9 @@ a {
   margin: 20px auto 15px auto;
 }
 .bwb:hover {
+  background-color: #fafdfa;
   border-bottom: 2px solid #2E5147;
+  padding-top: 1px;
 }
 .xbtn {
   font-weight: bold;
@@ -185,30 +192,42 @@ a {
 .xbtn:hover {
   color: #424242;
 }
+#cnc {
+  background-color: #fff;
+}
 .aosvbtn, .oppt {
   background-color: #fff;
-  border: 1px solid #2E5147;
+  border: none;
+  border: 1px solid #006633;
   border-radius: 3px;
-  width: 230px;
+  width: 210px;
   height: 40px;
   font-size: 14px;
   margin: 10px auto 0px auto;
 }
 .aosvbtn:hover, .oppt:hover {
-  border-bottom: 2px solid #2E5147;
+  background-color: #fafdfa;
+  border-bottom: 2px solid #006633;
+  border-radius: 3px;
 }
 .oppt {
-  padding-top: 10px;
-  height: 30px;
+  padding: 10px 0px;
+  height: 20px;
   margin: 10px auto 10px auto;
   vertical-align: baseline;
   overflow: auto;
 }
 .oppt:hover {
-  padding-top: 9px;
+  height: 19px;
+}
+.aosvbtn:hover {
+  padding-top: 1px;
 }
 #titleft {
   margin-bottom: 0px;
+}
+p2 {
+  font-size: 18px;
 }
 .head {
   min-width: 704px;

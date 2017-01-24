@@ -15,8 +15,6 @@ module.exports = function(app, passport) {
     
     app.route("/")
         .get(isLoggedIn, function(req, res) {
-            //var ip = req.headers["x-forwarded-for"];
-            //console.log(ip);
             res.sendFile(path + "/public/homeLI.html");
         });
         
@@ -135,19 +133,35 @@ module.exports = function(app, passport) {
         
     app.route("/api/:id/poll=:pollID")
         .get(function(req, res) {
+            var ip = req.headers["x-forwarded-for"];
+            var msg;
+            if (req.isAuthenticated()) {
+                msg = req.user.twitter.username;
+            } else {
+                msg = ip;
+            }
             Poll.findById(req.params.pollID, function(err, doc) {
                 if (err) throw err;
+                var va = false;
+                var voted = doc.poll.voted;
+                for (var i = 0; i < voted.length; i++) {
+                    if (voted[i] == msg) {
+                        va = true;
+                        break;
+                    }
+                }
                 var rtssp = {
                     "id": doc.id,
                     "title": doc.poll.title,
                     "options": doc.poll.options,
-                    "author": doc.poll.author
+                    "author": doc.poll.author,
+                    "voted": va
                 };
                 res.json(rtssp);
             });
         });
         
-        app.route("/delete/poll=:pollID")
+    app.route("/delete/poll=:pollID")
         .get(function(req, res) {
             Poll.findById(req.params.pollID, function(err, doc) {
                 if (err) {
@@ -170,18 +184,48 @@ module.exports = function(app, passport) {
                     
                 }
             });
-            
         });
-        app.route("/addvote/poll=:pollID/option=:chopt")
+    
+    app.route("/addvote/poll=:pollID/option=:chopt")
         .get(function(req, res) {
             var upopt = req.params.chopt;
+            var ip = req.headers["x-forwarded-for"];
+            var msg;
+            if (req.isAuthenticated()) {
+                msg = req.user.twitter.username;
+            } else {
+                msg = ip;
+            }
+            
             var inc = { $inc: {} };
             inc.$inc["poll.options." + upopt] = 1;
-            Poll.findOneAndUpdate({ "_id": req.params.pollID }, inc )
-                .exec(function(err, result) {
-                    if(err) throw err;
+            var push = { $push: {} };
+            push.$push["poll.voted"] = msg;
+            
+            Poll.findById(req.params.pollID, function(err, doc) {
+                if (err) throw err;
+                var va = false;
+                var voted = doc.poll.voted;
+                for (var i = 0; i < voted.length; i++) {
+                    if (voted[i] == msg) {
+                        va = true;
+                        break;
+                    }
+                }
+                if (va === true) {
+                    res.redirect("/poll=" + req.params.pollID);
+                } else {
+                    Poll.findOneAndUpdate({ "_id": req.params.pollID }, inc)
+                        .exec(function(err, result) {
+                            if(err) throw err;
+                        });
+                    Poll.findOneAndUpdate({ "_id": req.params.pollID }, push, {safe: true, upsert: true})
+                        .exec(function(err, result) {
+                            if(err) throw err;
+                        });
+                    res.redirect("/poll=" + req.params.pollID);
+                }
             });
-            res.redirect("/poll=" + req.params.pollID);
         });
         
 };

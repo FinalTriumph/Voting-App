@@ -24,6 +24,11 @@ function ajaxRequest (method, url, callback) {
     
 ready(ajaxRequest("GET", apiUrl, function(data){
     var pollObject = JSON.parse(data);
+    var voted = pollObject.voted;
+    if (voted === true) {
+        document.getElementById("vot-opt").style.display = "none";
+    }
+    
     var myOpt = pollObject.options;
     var forChart = [];
     var forOffset = {};
@@ -43,16 +48,24 @@ ready(ajaxRequest("GET", apiUrl, function(data){
         forOffset[count] = {offset: 0.05};
         count += 1;
         
-        var newanc = document.createElement("a");
-        newanc.setAttribute("id", name);
-        newanc.setAttribute("href", "/addvote/poll=" + pollObject.id + "/option=" + name);
-        document.getElementById("votefor").appendChild(newanc);
+        if (voted === false) {
+            var newanc = document.createElement("a");
+            newanc.setAttribute("id", name);
+            newanc.setAttribute("href", "#");
+            newanc.addEventListener("click", function(){
+            if (window.confirm('You are voting for "' + this.id + '".')) {
+                    window.location.href = window.location.origin + "/addvote/poll=" + pollObject.id + "/option=" + this.id;
+                } else {
+                    return false;
+                }
+            });
+            document.getElementById("votefor").appendChild(newanc);
         
-        var newdiv = document.createElement("div");
-        newdiv.className += "oppt";
-        newdiv.innerHTML = name;
-        document.getElementById(name).appendChild(newdiv);
-        
+            var newdiv = document.createElement("div");
+            newdiv.className += "oppt";
+            newdiv.innerHTML = name;
+            document.getElementById(name).appendChild(newdiv);
+        }
     }
     
     google.charts.load('current', {'packages':['corechart']});
@@ -66,13 +79,13 @@ ready(ajaxRequest("GET", apiUrl, function(data){
         data.addRows(forChart);
         
         var options = { "width": 600,
-                        "height": 450,
-                        "backgroundColor": "#ecf0f1",
+                        "height": 500,
+                        "backgroundColor": "#fff",
                         "chartArea": {
                             "left": 10,
                             "top": 80,
                             "width": 500,
-                            "height": 300
+                            "height": 350
                         },
                         "legend": {
                             "position": "left"

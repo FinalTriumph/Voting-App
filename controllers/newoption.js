@@ -54,6 +54,11 @@ function addnewvote(){
     if (!newValue.replace(/\s/g, '').length) {
         alert("Please type in your new option.");
     } else {
-        window.location.href = window.location.origin + "/addvote" + window.location.pathname + "/option=" + newValue;
+        if (window.confirm('You are voting for "' + newValue + '".')) {
+            window.location.href = window.location.origin + "/addvote" + window.location.pathname + "/option=" + newValue;
+        } else {
+            return false;
+        }
+        //window.location.href = window.location.origin + "/addvote" + window.location.pathname + "/option=" + newValue;
     }
 }
