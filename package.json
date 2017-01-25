@@ -1,15 +1,15 @@
 {
   "name": "voting-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Voting App",
   "main": "server.js",
   "engines": {
     "node": "4.6.1",
     "npm": "2.15.9"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "FinalTriumph",
   "license": "ISC",
